@@ -1,19 +1,19 @@
-name = "Diary"
+name = "Dear Diary"
 license = "MIT"
-licenselink = "https://github.com/amazingrise/hugo-theme-diary/blob/master/LICENSE"
-description = "Moments piled up. A simple, elegant blog theme."
-homepage = "https://amazingrise.net/"
+licenselink = "https://github.com/InkStash/dear-diary/blob/main/LICENSE"
+description = "A blog of one's own."
+homepage = "https://github.com/InkStash/dear-diary/"
 tags = ["blog"]
 features = ["mobile","elegant"]
 min_version = "0.59.0"
 
 [author]
-  name = "amazingrise"
-  homepage = "https://amazingrise.net/"
+  name = "Ink Stash"
+  homepage = "https://github.com/InkStash/"
 
 
 # If porting an existing theme
 [original]
-  name = "SumiMakito"
-  homepage = "https://mak1t0.cc"
-  repo = "https://github.com/SumiMakito/hexo-theme-Journal/"
+  name = "amazingrise"
+  homepage = "https://amazingrise.net/"
+  repo = "https://github.com/amazingrise/hugo-theme-diary/"
