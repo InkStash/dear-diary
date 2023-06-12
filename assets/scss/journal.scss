@@ -1,32 +1,35 @@
-$color-accent: #1976d2;
+$color-accent: #d67f3f; //#1976d2;
 //$color-accent: #330000;
-$back-container-background: #fcfcfc;
-$front-container-background: #ffffff;
+$back-container-background: #ececec; //#fcfcfc;
+$front-container-background: #ececec; //#ffffff;
 
-$default-font-list: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+/*$default-font-list: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
   "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
-  monospace;
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+$default-font-list: "Radio Canada", sans-serif;
+/*$mono-font-list: "Fira Mono", "Cousine", Monaco, Menlo, "Source Code Pro",
+  monospace;*/
+$mono-font-list: "Cascadia Code", monospace;
 //$sans-preferred-font-list: "Montserrat", "Roboto", "Source Sans Pro", "Helvetica", $default-font-list;
 $sans-preferred-font-list: $default-font-list;
 
-$side-container-width: calc(calc(100svw - 1280px) / 2); //15rem; //25%; //280px;
-$extra-container-width: calc(calc(100svw - 1280px) / 2); //4rem; //25%;
+$side-container-width: 15rem; //25%; //280px;
+$extra-container-width: 15rem; //25%;
 $extra-container-pagination-width: 64px;
 $stream-container-max-width: 1620px;
 
-$nav-title-size: 30px;
-$nav-subtitle-size: 18px;
-$nav-link-size: 20px;
-$nav-footer-size: 12px;
-$post-title-size: 30px;
-$post-subtitle-size: 14px;
-$post-summary-size: 16px;
-$post-body-size: 16px;
-$post-meta-size: 16px;
-$tag-category-title-size: 22px;
-$toc-size: 16px;
+$html-main-size: 18px; //keep as px, change others to rem
+$nav-title-size: 1.875rem; //30px;
+$nav-subtitle-size: 1.125rem; //18px;
+$nav-link-size: 1.25rem; //20px;
+$nav-footer-size: .75rem; //12px;
+$post-title-size: 2.5rem; //30px;
+$post-subtitle-size: .875rem; //14px;
+$post-summary-size: 1rem; //16px;
+$post-body-size: 1.2rem; //1rem; //16px;
+$post-meta-size: 1rem; //16px;
+$tag-category-title-size: 1.375rem; //22px;
+$toc-size: 1rem; //16px;
 
 $dark-accent: darken($color-accent, 10%);
 $deep-dark-accent: darken($color-accent, 50%);
@@ -38,21 +41,21 @@ $color-text: $deep-dark-accent;
   $color-text: $deep-dark-accent;
 }
 
-$single-column-max-width: 1020px;
-$single-column-drawer-width: 260px;
-$single-column-nav-title-size: 28px;
-$single-column-nav-subtitle-size: 20px;
-$single-column-nav-link-size: 18px;
-$single-column-nav-footer-size: 13px;
-$single-column-post-title-size: 22px;
-$single-column-post-summary-size: 16px;
-$single-column-post-body-size: 16px;
-$single-column-post-meta-size: 14px;
-$single-column-tag-category-title-size: 14px;
-$single-column-toc-size: 14px;
+$single-column-max-width: 56.66rem; //1020px;
+$single-column-drawer-width: 14.44rem; //260px;
+$single-column-nav-title-size: 1.55rem; //28px;
+$single-column-nav-subtitle-size: 1.11rem; //20px;
+$single-column-nav-link-size: 1rem; //18px;
+$single-column-nav-footer-size: .72rem; //13px;
+$single-column-post-title-size: 1.22rem; //22px;
+$single-column-post-summary-size: .88rem; //16px;
+$single-column-post-body-size: .88rem; //16px;
+$single-column-post-meta-size: .77rem; //14px;
+$single-column-tag-category-title-size: .77rem; //14px;
+$single-column-toc-size: .77rem; //14px;
 
-$h1: 30px;
-$h-diff: 3px;
+$h1: 1.875rem; //30px;
+$h-diff: .25rem; //3px;
 
 ::selection {
   background: rgba($color-accent, 0.4);
@@ -60,6 +63,7 @@ $h-diff: 3px;
 
 html {
   overflow-y: scroll;
+  font-size: $html-main-size;
 }
 
 body {
@@ -67,6 +71,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: $default-font-list;
+  font-size: $html-main-size;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
   text-rendering: optimizeLegibility !important;
   -webkit-font-smoothing: antialiased !important;
@@ -478,7 +483,7 @@ a {
       cursor: pointer;
       color: $deep-dark-accent;
       .nav-link-subitem {
-        font-size: $nav-link-size - 3px;
+        font-size: calc($nav-link-size - 3px);
         li {
           list-style: none;
           padding-left: 2px;
@@ -528,10 +533,10 @@ a {
     // position: fixed;
     bottom: 0;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;/*
     > :not(:last-child) {
       // border-bottom: 1px solid rgba(128, 128, 128, 0.12);
-    }
+    }*/
     .pagination-indicator {
       display: flex;
       flex-direction: column;
@@ -560,12 +565,12 @@ a {
         transition: all 0.2s linear;
         font-size: 13px;
         font-family: $mono-font-list;
-      }
+      }/*
       .pagination-action-icon {
         // margin-right: 4px;
-      }
+      }*/
       * {
-        transition: all 0.3s linear;
+        transition: all 0.1s linear; //all 0.3s linear;
       }
       &:hover {
         text-decoration: none;
@@ -610,7 +615,7 @@ a {
     min-height: 100svh;
     padding: 20px 0 20px 0;
     background: $front-container-background;
-    box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+    //box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
 
     @media screen and (max-width: $single-column-max-width) {
       min-height: unset;
@@ -897,7 +902,7 @@ a {
       }
       .post-body {
         font-size: $post-body-size;
-        line-height: 1.5em;
+        line-height: 2; //1.5em;
         * {
           word-wrap: break-word;
         }
@@ -996,11 +1001,11 @@ a {
     float: none;
     margin-top: 30px;
     margin-left: 0;
-    margin-right: 0;
+    margin-right: 0;/*
     &,
     * {
-      /*font-size: $single-column-toc-size;*/
-    }
+      /*font-size: $single-column-toc-size;
+    }*/
     .toc-content {
       padding: 10px;
     }
@@ -1012,6 +1017,7 @@ a {
 
   .pagination-action {
     -webkit-appearance: none; // Fix bootstrap set the appearance to button.
+    appearance: none;
   }
 
   @media screen and (max-width: $single-column-max-width) {
@@ -1048,10 +1054,10 @@ a {
         transition: all 0.2s linear;
         font-size: 13px;
         font-family: $mono-font-list;
-      }
+      }/*
       .pagination-action-icon {
         // margin-right: 4px;
-      }
+      }*/
       * {
         transition: all 0.3s linear;
       }
@@ -1106,4 +1112,9 @@ mjx-container {
   .tag {
     margin: 10px;
   }
+}
+
+.article-footer {
+  opacity: .9;
+  font-size: $post-meta-size;
 }

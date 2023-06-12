@@ -313,3 +313,8 @@ var closeDrawer = function () {
 document.getElementById("drawer-mask").addEventListener("click", function () {
   closeDrawer();
 });
+
+document.addEventListener("click", function(event) {
+  if (event.target.id !== "globalBackToTop" && event.target.parentNode.id !== "globalBackToTop") {return;}
+  window.scrollTo({top: 0, behavior: "smooth"});
+});

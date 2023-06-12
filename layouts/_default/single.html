@@ -4,6 +4,11 @@
         <div class="post">
             {{ $post_class := "post-head-wrapper-text-only"}}
             {{ $featured_image := .Params.featured_image }}
+            {{ $written_on := .Params.written_on }}
+            {{ $fi_author := .Params.fi_author }}
+            {{ $fi_source := .Params.fi_source }}
+            {{ $fi_author_link := .Params.fi_author_link }}
+            {{ $fi_source_link := .Params.fi_source_link }}
             {{ if $featured_image }}
                 {{ $post_class = "post-head-wrapper"}}
             {{ end }}
@@ -12,14 +17,14 @@
                 {{ if $featured_image }}
                     {{ $image := .Resources.GetMatch (.Params.featured_image) }}
                     {{ if $image }}
-                    style="background-image: linear-gradient(to right, rgba(17, 17, 17, 0.933), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('{{$image.RelPermalink }}')"
+                    style="background-image: linear-gradient(to right, rgba(17, 17, 17, 0.7), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25)), url('{{$image.RelPermalink }}')"
                     {{ else }}
-                    style="background-image: linear-gradient(to right, rgba(17, 17, 17, 0.933), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('{{ $featured_image | absURL}}')"
+                    style="background-image: linear-gradient(to right, rgba(17, 17, 17, 0.7), rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25)), url('{{ $featured_image | absURL}}')"
                     {{ end }}
                 {{ end }}
             >
                 <div class="post-title">
-                    {{ .Title }}
+                    <span>{{ .Title }}</span>
                     {{ if .Params.description }}
                     <div class="post-subtitle" style="display:none">
                         {{ .Params.description }}
@@ -68,10 +73,22 @@
                 <div class="post-body" v-pre>
                 {{ end }}
                     {{.Content}}
-                    {{ if not .Lastmod.IsZero }}
-                    <HR width="100%" id="EOF">
-		    <p style="color:#777;">{{ i18n "last_mod_on" .Page.Lastmod }}</p>
-                    {{ end }}
+                    <!-- <HR width="100%" id="EOF"> -->
+		    <!--<p style="color:#777;">-->
+                    <p class="article-footer">
+                        <br />
+                        {{ if .Params.written_on }}
+                        Written on {{ .Params.written_on }}.<br />
+                        {{ end }}
+
+                        {{ if and .Params.fi_author .Params.fi_source .Params.fi_author_link .Params.fi_source_link }}
+                        Photo by <a href="{{ .Params.fi_author_link }}" target="_blank">{{ .Params.fi_author }}</a> on <a href="{{ .Params.fi_source_link }}" target="_blank">{{ .Params.fi_source }}</a>.<br />
+                        {{ end }}
+
+                        {{ if not .Lastmod.IsZero }}
+                        <br />{{ i18n "last_mod_on" .Page.Lastmod }}.
+                        {{ end }}
+                    </p>
                 </div>
             </div>
             
