@@ -30,39 +30,6 @@
                         {{ .Params.description }}
                     </div>
                     {{ end }}
-                    <div class="post-meta">
-                        {{ if .Params.date}}
-                        <time itemprop="datePublished">
-                            {{ i18n "format_date_tosec" .PublishDate }}
-                        </time>
-                        {{ end }}
-
-                        {{ if .Params.categories }}
-                            <i class="material-icons" style="">folder</i>
-                                <a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
-                                &nbsp;
-                        {{ end }}
-
-                        {{ if gt .Params.tags 0 }}
-                            <i class="material-icons" style="">label</i>
-                            {{ range .Params.tags }}
-                                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
-                                &nbsp;
-                            {{ end }}
-                        {{ end }}
-                        {{ if .Site.Params.enableReadingTime }}
-                            <i class="material-icons" style="">schedule</i>
-                            {{ $readTime := mul (div (countwords .Content) 220.0) 60 }}
-
-                            {{ $minutes := math.Floor (div $readTime 60) }}
-                            {{ $seconds := mod $readTime 60 }}
-
-                            {{ if gt $minutes 0}}
-                            {{ $minutes }} {{ cond (eq $minutes 1) "minute" "min" }}
-                            {{ end }}
-                            {{ $seconds }} {{ cond (eq $seconds 1) "second" "s" }}.
-                        {{ end }}
-                    </div>
                 </div>
             </div>
             
@@ -85,11 +52,45 @@
                         Photo by <a href="{{ .Params.fi_author_link }}" target="_blank">{{ .Params.fi_author }}</a> on <a href="{{ .Params.fi_source_link }}" target="_blank">{{ .Params.fi_source }}</a>.<br />
                         {{ end }}
 
-                        {{ if not .Lastmod.IsZero }}
+                        <!--{{ if not .Lastmod.IsZero }}
                         <br />{{ i18n "last_mod_on" .Page.Lastmod }}.
-                        {{ end }}
+                        {{ end }}-->
                     </p>
                 </div>
+            </div>
+
+            <div class="post-meta">
+                {{ if .Params.date}}
+                <!--<time itemprop="datePublished">
+                    {{ i18n "format_date_tosec" .PublishDate }}
+                </time>-->
+                {{ end }}
+
+                {{ if .Params.categories }}
+                    <i class="material-icons" style="">folder</i>
+                        <a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>
+                        &nbsp;
+                {{ end }}
+
+                {{ if gt .Params.tags 0 }}
+                    <i class="material-icons" style="">label</i>
+                    {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                        &nbsp;
+                    {{ end }}
+                {{ end }}
+                {{ if .Site.Params.enableReadingTime }}
+                    <i class="material-icons" style="">schedule</i>
+                    {{ $readTime := mul (div (countwords .Content) 220.0) 60 }}
+
+                    {{ $minutes := math.Floor (div $readTime 60) }}
+                    {{ $seconds := mod $readTime 60 }}
+
+                    {{ if gt $minutes 0}}
+                    {{ $minutes }} {{ cond (eq $minutes 1) "minute" "min" }}
+                    {{ end }}
+                    {{ $seconds }} {{ cond (eq $seconds 1) "second" "s" }}.
+                {{ end }}
             </div>
             
             

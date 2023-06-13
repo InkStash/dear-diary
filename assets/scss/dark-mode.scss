@@ -1,6 +1,7 @@
 @import "journal";
 @import "cascadiacode";
 @import "radiocanada";
+@import "ebgaramond";
 
 $light-accent: lighten($color-accent, 10%);
 $deep-light-accent: lighten($color-accent, 30%);
@@ -275,5 +276,9 @@ body.night {
         color: white;
       }
     }
+  }
+
+  .post-meta, .post-meta * {
+    color: $dark-mode-text;
   }
 }
