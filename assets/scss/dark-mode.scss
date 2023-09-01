@@ -2,7 +2,7 @@
 @import "cascadiacode";
 @import "radiocanada";
 @import "ebgaramond";
-
+/*
 $light-accent: lighten($color-accent, 10%);
 $deep-light-accent: lighten($color-accent, 30%);
 $dark-mode-text: #eeeeee; //darken(#fff, 10%);
@@ -169,7 +169,7 @@ body.night {
     * {
       color: $dark-mode-text;
     }
-    @media screen and (max-width: $single-column-max-width) {
+    //@media screen and (max-width: $single-column-max-width) {
       .nav-dropdown-toggle {
         &:hover {
           color: #3f587d !important;
@@ -185,11 +185,11 @@ body.night {
         background: $dark-mode-front-container-background;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
       }
-    }
+    //}
   }
 
   .single-column-header-container {
-    @media screen and (max-width: $single-column-max-width) {
+    //@media screen and (max-width: $single-column-max-width) {
       * {
         font-family: $sans-preferred-font-list;
         color: $deep-light-accent;
@@ -200,7 +200,7 @@ body.night {
       .single-column-header-subtitle {
         color: $dark-mode-text;
       }
-    }
+    //}
   }
 
   .single-column-drawer-container {
@@ -282,3 +282,4 @@ body.night {
     color: $dark-mode-text;
   }
 }
+*/
